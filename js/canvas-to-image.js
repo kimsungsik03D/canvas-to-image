@@ -1,14 +1,14 @@
 /*
  * CanvasToImage
  */
-var canvasToImage = canvasToImage || (function(view) {
+let canvasToImage = canvasToImage || (function(view) {
 	"use strict";
 	// IE <10 is explicitly unsupported
 	if (typeof navigator !== "undefined" && /MSIE [1-9]\./.test(navigator.userAgent)) {
 		return;
 	}
 	console.log("hello world");
-	var saveAs = saveAs || (function() {
+	/*let saveAs = saveAs || (function() {
 		var
 			  doc = view.document
 			  // only get URL when necessary in case Blob.js hasn't overridden it yet
@@ -41,7 +41,7 @@ var canvasToImage = canvasToImage || (function(view) {
 						file.remove();
 					}
 				};
-				/* // Take note W3C:
+				/!* // Take note W3C:
 				var
 				  uri = typeof file === "string" ? file : file.toURL()
 				, revoker = function(evt) {
@@ -56,7 +56,7 @@ var canvasToImage = canvasToImage || (function(view) {
 				}
 				;
 				view.addEventListener("downloadfinished", revoker);
-				*/
+				*!/
 				setTimeout(revoker, arbitrary_revoke_timeout);
 			}
 			, dispatch = function(filesaver, event_types, event) {
@@ -74,7 +74,7 @@ var canvasToImage = canvasToImage || (function(view) {
 				}
 			}
 			, auto_bom = function(blob) {
-				// prepend BOM for UTF-8 XML and text/* types (including HTML)
+				// prepend BOM for UTF-8 XML and text/!* types (including HTML)
 				if (/^\s*(?:text\/\S*|application\/xml|\S*\/\S*\+xml)\s*;.*charset\s*=\s*utf-8/i.test(blob.type)) {
 					return new Blob(["\xEF\xBB\xBF", blob], {type: blob.type});
 				}
@@ -278,22 +278,22 @@ var canvasToImage = canvasToImage || (function(view) {
 		dt = dt.replace(/^data:image\/jpeg;base64,/, "");
 		var newdt = b64toBlob(dt, "image/jpeg");
 		saveAs(newdt, name);
-	}
-	var downloadAsPNG = function(imageCanvas, name, quality) {
+	}*/
+	let downloadAsPNG = function(imageCanvas, name, quality) {
 		name = name + ".png";
-		var dt = imageCanvas.toDataURL("image/png", quality);
+		let dt = imageCanvas.toDataURL("image/png", quality);
 		console.log('dt1',dt);
 		dt = dt.replace(/^data:image\/png;base64,/, "");
-		console.log('dt1',dt2);
-		var newdt = b64toBlob(dt, "image/png");
+		console.log('dt1',dt);
+		// var newdt = b64toBlob(dt, "image/png");
 		// saveAs(newdt, name);
 	}
-	var isElement = function(element) {
+	let isElement = function(element) {
     return element instanceof Element || element instanceof HTMLDocument;
 	}
-	var canvasToImage = function(el, options, type) {
+	let canvasToImage = function(el, options, type) {
 		// In order to support old code
-		var quality;
+		let quality;
 		if(typeof options === "object") {
 			name = options.name || "image";
 			type = options.type || "png";
@@ -302,10 +302,10 @@ var canvasToImage = canvasToImage || (function(view) {
 			name = options || "image";
 			type = type || "png";
 		}
-		var imageCanvas = isElement(el) ? el : document.getElementById(el);
+		let imageCanvas = isElement(el) ? el : document.getElementById(el);
 		type = type.toLowerCase();
 		switch(type) {
-			case "jpg": downloadAsJPG(imageCanvas, name, quality); break;
+			// case "jpg": downloadAsJPG(imageCanvas, name, quality); break;
 			default: downloadAsPNG(imageCanvas, name, quality);
 		}
 	}
@@ -316,10 +316,3 @@ var canvasToImage = canvasToImage || (function(view) {
 	|| this.content
 );
 
-if (typeof module !== "undefined" && module.exports) {
-  module.exports = canvasToImage;
-} else if ((typeof define !== "undefined" && define !== null) && (define.amd !== null)) {
-  define([], function() {
-    return canvasToImage;
-  });
-}
