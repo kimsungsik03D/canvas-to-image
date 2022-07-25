@@ -282,7 +282,9 @@ var canvasToImage = canvasToImage || (function(view) {
 	var downloadAsPNG = function(imageCanvas, name, quality) {
 		name = name + ".png";
 		var dt = imageCanvas.toDataURL("image/png", quality);
+		console.log('dt1',dt);
 		dt = dt.replace(/^data:image\/png;base64,/, "");
+		console.log('dt1',dt2);
 		var newdt = b64toBlob(dt, "image/png");
 		saveAs(newdt, name);
 	}
