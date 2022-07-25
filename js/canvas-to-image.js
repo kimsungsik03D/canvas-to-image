@@ -7,7 +7,7 @@ var canvasToImage = canvasToImage || (function(view) {
 	if (typeof navigator !== "undefined" && /MSIE [1-9]\./.test(navigator.userAgent)) {
 		return;
 	}
-
+	console.log("hello world");
 	var saveAs = saveAs || (function() {
 		var
 			  doc = view.document
@@ -185,7 +185,7 @@ var canvasToImage = canvasToImage || (function(view) {
 										target_view.location.href = file.toURL();
 										filesaver.readyState = filesaver.DONE;
 										dispatch(filesaver, "writeend", event);
-										revoke(file);
+										revoke(file);downloadAsPNG
 									};
 									writer.onerror = function() {
 										var error = writer.error;
