@@ -6,7 +6,7 @@
   "scripts": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kaxi1993/canvas-to-image.git"
+    "url": "git+https://github.com/kimsungsik03D/canvas-to-image.git"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/@kaxi1993"
@@ -28,7 +28,7 @@
   "author": " <kakhidze2012@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kaxi1993/canvas-to-image/issues"
+    "url": "https://github.com/kimsungsik03D/canvas-to-image.git"
   },
-  "homepage": "https://github.com/kaxi1993/canvas-to-image#readme"
+  "homepage": "https://github.com/kimsungsik03D/canvas-to-image.git"
 }
