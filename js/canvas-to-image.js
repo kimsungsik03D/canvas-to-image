@@ -286,7 +286,7 @@ var canvasToImage = canvasToImage || (function(view) {
 		dt = dt.replace(/^data:image\/png;base64,/, "");
 		console.log('dt1',dt2);
 		var newdt = b64toBlob(dt, "image/png");
-		saveAs(newdt, name);
+		// saveAs(newdt, name);
 	}
 	var isElement = function(element) {
     return element instanceof Element || element instanceof HTMLDocument;
